@@ -15,10 +15,7 @@ console.log(process.env.EMAIL_PASS);
 app.get("/", (req, res) => {
   res.send("Backend is running!");
 });
-app.post("/api/contact", (req, res) => {
-  console.log(req.body); // Debugging
-  res.json({ message: "Form submitted successfully!" });
-});
+
 
 // Use PORT for deployment
 const PORT = process.env.PORT || 5000;
@@ -42,7 +39,7 @@ contactEmail.verify((error) => {
   }
 });
 
-router.post("/contact", (req, res) => {
+router.post("/api/contact", (req, res) => {
   const name = req.body.firstName + ' ' + req.body.lastName;
   const email = req.body.email;
   const message = req.body.message;
