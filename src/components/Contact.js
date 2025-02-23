@@ -26,7 +26,7 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    let response = await fetch("https://personal-portfolio-2tio.onrender.com", {
+    let response = await fetch("https://personal-portfolio-2tio.onrender.com/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",

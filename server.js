@@ -12,6 +12,20 @@ app.listen(5000, () => console.log("Server Running"));
 console.log(process.env.EMAIL_USER);
 console.log(process.env.EMAIL_PASS);
 
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
+app.post("/api/contact", (req, res) => {
+  console.log(req.body); // Debugging
+  res.json({ message: "Form submitted successfully!" });
+});
+
+// Use PORT for deployment
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
 const contactEmail = nodemailer.createTransport({
   service: 'gmail',
   auth: {
