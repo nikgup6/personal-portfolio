@@ -1,24 +1,30 @@
-import { Container, Row, Col } from "react-bootstrap";
-import logo from "../assets/img/nikunj.png";
-import navIcon1 from "../assets/img/nav-icon1.svg";
-import navIcon2 from "../assets/img/github.svg";
+// src/components/Footer.js
+import React from 'react';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className="footer">
-      <Container>
-        <Row className="align-items-center">
-          <Col size={12} sm={6}>
-            <img src={logo} alt="Logo" />
-          </Col>
-          <Col size={12} sm={6} className="text-center text-sm-end">
-            <div className="social-icon">
-              <a href="https://www.linkedin.com/in/nikunj-gupta-b66b94258/" target='_blank'><img src={navIcon1} alt="" /></a>
-              <a href="https://www.github.com/nikgup6" target='_blank'><img src={navIcon2} alt="" /></a>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <div className="container">
+        <p>&copy; {new Date().getFullYear()} Nikunj Gupta. All rights reserved.</p>
+        <div className="footer-social-links">
+          <a href="https://github.com/nikgup6" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <FaGithub />
+          </a>
+          <a href="https://linkedin.com/in/nikunj-gupta-b66b94258" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+            <FaLinkedin />
+          </a>
+          <a href="mailto:nikunjgupta.grandhe@gmail.com" title="Email ">
+            <FaEnvelope />
+          </a>
+          <a href="tel:+918179367637" title="Phone">
+            <FaPhone />
+          </a>
+          
+        </div>
+      </div>
     </footer>
-  )
-}
+  );
+};
+
+export default Footer;

@@ -1,65 +1,75 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/3d.jpg";
-import projImg2 from "../assets/img/greencab.png";
-import projImg3 from "../assets/img/transcribe.png";
-import colorSharp2 from "../assets/img/color-sharp2.png";
-import TrackVisibility from 'react-on-screen';
-export const Projects = () => {
+// src/components/Projects.js
+import React from 'react';
+import SmartCab from '../assets/img/greencab.png';
+import chronic from '../assets/img/download.jpeg';
+import glasses from '../assets/img/transcribe.png';
+import nlp from '../assets/img/nlp.png';
 
-  const projects = [
-    {
-      title: "2D images to 3D models",
-      description: "Built a model to convert 2D images to 3D models using OpenCV and 3D rendering.",
-      imgUrl: projImg1,
-    },
-    {
-      title: "Sustainable transportation",
-      description: "A platform to optimize private transportation (eg- cabs) enabling users to choose the fuel type of the ride.",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Transcribe glasses",
-      description: "Cnverts the speech to text and displays it on the glasses. It is useful for the people who are deaf to actively participate in a converstation",
-      imgUrl: projImg3,
-    },
-  ];
+const projectsData = [
+  {
+    title: 'Emergency Prediction System',
+    subtitle: 'NLP-Based Crisis Detection',
+    description: 'Trained a BART-based NLP model on emergency datasets to classify crisis-related user input with 91% accuracy. Integrated real-time sentiment and intent analysis to trigger instant alerts for potential emergencies. Deployed on mobile platforms with an intuitive UI for quick access in high-stress scenarios.',
+    techStack: ['React Native', 'Node.js', 'Express.js', 'MongoDB', 'REST API', 'NLP', 'BART'],
+    imageUrl: nlp, // Replace with actual image
+    link: 'https://github.com/nikgup6/tasksense_app', // Replace with your actual project link/demo
+    sources: [79, 80, 81, 82, 83]
+  },
+  {
+    title: 'Transcribe Glasses',
+    subtitle: 'Real-Time Speech-to-Text Subtitling',
+    description: 'Developed a wearable smart glasses solution for hearing-impaired individuals using deep learning STT models. Achieved transcription latency under 300ms, ensuring natural and readable subtitle output. Deployed using Raspberry Pi for edge processing, reducing dependence on cloud latency.',
+    techStack: ['Python', 'TensorFlow', 'SpeechRecognition API', 'Embedded Systems', 'IoT devices (Raspberry Pi)'],
+    imageUrl: glasses, // Replace with actual image
+    link: 'https://github.com/nikgup6/Speech-to-text-using-hugging-face', // Replace with your actual project link/demo
+    sources: [84, 85, 86, 87]
+  },
+  {
+    title: 'Smart Cab',
+    subtitle: 'Sustainability & UX-Focused Transport Solution',
+    description: 'Designed a cab booking system integrating real-time tracking, walkable route suggestions, and sustainability rewards. Improved trip route optimization by 18%, reducing carbon footprint through AI-driven voluntary walking segments. Added "food-on-the-way" and step-count-based incentives, enhancing UX and promoting eco-conscious travel behavior.',
+    techStack: ['React.js', 'Node.js', 'Socket.io', 'MongoDB', 'Flask', 'OpenStreetMap', 'TensorFlow'],
+    imageUrl: SmartCab, // Replace with actual image
+    link: 'https://github.com/nikgup6/Routemap', // Replace with your actual project link/demo
+    sources: [88, 89, 90, 91]
+  },
+  {
+    title: 'Chronic Disease Risk Predictor',
+    subtitle: 'ML-Based Health Monitoring Tool',
+    description: 'Built a machine learning app that evaluates chronic disease risks based on user inputs. Achieved 87% model accuracy in predicting diabetes, heart disease, and hypertension using NHANES data. Implemented real-time result visualization with interactive risk indicators and health suggestions.',
+    techStack: ['Python', 'Scikit-learn', 'Pandas', 'Flask', 'React.js', 'NHANES Dataset'],
+    imageUrl: chronic, // Replace with actual image
+    link: 'https://chronic-disease-prediction.vercel.app/', // From your resume [cite: 96]
+    sources: [92, 93, 94, 95]
+  }
+];
 
+const Projects = () => {
   return (
-    <section className="project" id="projects">
-      <Container>
-        <Row>
-          <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Projects</h2>
-                <p>Designed and implemented various AI and ML-based projects, focusing on real-world applications. Projects include NLP-based transcription, cybersecurity solutions, 3D model generation, and sustainable transportation optimization. Developed AI-driven web platforms for NGOs and businesses, integrating advanced technologies for enhanced user experience and automation.</p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <div className="project-container">
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
-                      </div>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
-              </div>}
-            </TrackVisibility>
-          </Col>
-        </Row>
-      </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
-    </section>
-  )
-}
+    <div className="container text-center">
+      <h2>My Projects</h2>
+      <div className="grid-container projects-grid">
+        {projectsData.map((project, index) => (
+          <div className="project-card" key={index}>
+            <img src={project.imageUrl} alt={project.title} className="project-card-image" />
+            <div className="project-card-content">
+              <h3>{project.title}</h3>
+              <h4>{project.subtitle}</h4>
+              <p>{project.description} {project.sources && ``}</p>
+              <div className="project-tech-stack">
+                Tech Stack- {project.techStack.map((tech, i) => (
+                  <span className="tech-tag" key={i}>{tech}</span>
+                ))}
+              </div>
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                View Project
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Projects;
