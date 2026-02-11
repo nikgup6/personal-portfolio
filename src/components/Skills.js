@@ -1,7 +1,7 @@
 // src/components/Skills.js
 import React from 'react';
-import { FaPython, FaJsSquare, FaJava, FaDatabase, FaReact, FaAws, FaGitAlt } from 'react-icons/fa';
-import { SiTensorflow, SiScikitlearn, SiMongodb, SiNodedotjs, SiExpress, SiFlask, SiRaspberrypi, SiHtml5, SiCss3 } from 'react-icons/si';
+import { FaPython, FaDatabase, FaReact, FaAws, FaGitAlt } from 'react-icons/fa';
+import { SiTensorflow, SiRaspberrypi} from 'react-icons/si';
 
 const skillsData = [
   {
