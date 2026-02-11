@@ -3,9 +3,20 @@ import React from 'react';
 
 const experienceData = [
   {
+    title: 'AIE Intern',
+    company: 'Techsophy, Hyderabad',
+    duration: 'Sep 2025 - Present',
+    details: [
+      "Working in the field of backend Java Spring Boot.",
+      "Continuously applying techniques and concepts on Live projects.",
+      "Working on HIMS portal backend developement.",
+      "Hands on with API’s, keycloak, PostgreSQL and ML."
+    ]
+  },
+  {
     title: 'Full Stack Developer Intern',
     company: 'AI Research Center, Woxsen University',
-    duration: 'Jan 2025 - Present',
+    duration: 'Jan 2025 - Sep 2025',
     details: [
       'Engineered a cross-platform ERP portal using React Native and Node.js, reducing student-admin communication delays by 40%.',
       'Designed RAG-based AI chatbots for academic use, increasing query resolution efficiency by 55%.',

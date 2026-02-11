@@ -22,7 +22,7 @@ const skillsData = [
   {
     category: 'Databases',
     icon: <FaDatabase />,
-    items: ['MySQL', 'MongoDB']
+    items: ['MySQL', 'MongoDB','PostgreSQL']
   },
   {
     category: 'Cloud',
